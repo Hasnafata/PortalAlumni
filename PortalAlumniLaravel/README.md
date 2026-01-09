@@ -71,95 +71,59 @@ Lakukan langkah-langkah berikut untuk menjalankan project di lingkungan lokal:
 
 
 
-**1. Persiapan Awal**
-
+1. Persiapan Awal
 Pastikan folder project sudah diekstrak, kemudian buka terminal/command prompt di direktori tersebut.
 
 
-
-**2. Instalasi Dependensi**
-
+2. Instalasi Dependensi
 Instal seluruh library PHP yang diperlukan melalui Composer:
 
-
-
 Bash
-
-*"composer install"*
-
+composer install
 
 
-**3. Konfigurasi Environment \& Database**
-
+3. Konfigurasi Environment \& Database
 Pastikan file .env sudah tersedia di root folder.
-
-
-
 Sesuaikan parameter database berikut dengan konfigurasi server lokal Anda:
-
-
 
 Cuplikan kode
 
-
-
-DB\_CONNECTION=mysql
-
-DB\_HOST=127.0.0.1
-
-DB\_PORT=3306
-
-DB\_DATABASE=nama\_database\_anda
-
-DB\_USERNAME=root
-
-DB\_PASSWORD=
-
-Pastikan APP\_URL sesuai dengan alamat akses (default: http://127.0.0.1:8000).
-
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE="NamaDatabase"
+DB_USERNAME=root
+DB_PASSWORD=
 
 
 jalankan perintah:
 
 bash
-
-*"php artisan migrate"*
-
-
+php artisan migrate
 
 (Opsional) Jalankan Seeder: Jika Anda ingin mengisi database dengan data awal (seperti akun Admin default atau data alumni dummy), jalankan:
 
 Bash:
+php artisan db:seed
 
-*php artisan db:seed"*
-
-
-
-**4. Sinkronisasi Media (Penting)**
-
+4. Sinkronisasi Media (Penting)
 Aplikasi menggunakan symbolic link untuk mengakses file yang diunggah. Jika foto profil tidak muncul (pecah), jalankan perintah:
 
-
-
 Bash
-
-*"php artisan storage:link"*
-
-
+php artisan storage:link
 
 Catatan: Jika folder public/storage sudah ada namun gambar tetap pecah/tidak terdeteksi, hapus folder tersebut secara manual lalu jalankan kembali perintah di atas.
 
+5. Jalankan perintah:
+Bash 
+php artisan key:generate
 
 
-**5. Menjalankan Aplikasi**
-
+6. Menjalankan Aplikasi
 Nyalakan server pengembangan Laravel:
 
-
-
 Bash
-
-*"php artisan serve"*
+php artisan serve
 
 Akses aplikasi melalui browser di alamat http://127.0.0.1:8000.
 
